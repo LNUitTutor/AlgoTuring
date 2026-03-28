@@ -60,6 +60,9 @@ public:
 	// Виконує програму, починаючи з поточної конфігурації
 	bool run(unsigned max_step);
 
+	// Повертає слово, записане на інформаційній стрічці
+	std::string getResultWord() const;
+
 	// Друкує функціональну схему машини
 	void printProgram(std::ostream& os) const;
 

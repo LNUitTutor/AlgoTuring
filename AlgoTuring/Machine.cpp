@@ -109,6 +109,13 @@ bool Machine::run(unsigned max_step)
 	if (step == max_step) std::cout << "ERROR: max of steps executed\n";
 }
 
+std::string Machine::getResultWord() const
+{
+	int start = tape.find_first_not_of('~');
+	int end = tape.find_last_not_of('~');
+	return tape.substr(start, end - start + 1);
+}
+
 void Machine::printProgram(std::ostream& os) const
 {
 	std::set<char> S = prg.getOuterABC();

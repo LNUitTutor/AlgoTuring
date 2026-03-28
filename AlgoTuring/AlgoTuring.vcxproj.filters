@@ -40,5 +40,11 @@
     <Text Include="Increment.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="Multiply.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="UnaryToDecimal.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

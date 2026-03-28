@@ -39,4 +39,24 @@ int main()
     MT.printProgram(std::cout);
     std::cin.get();
     MT.setTape("abba"); MT.run(200);
+    std::cout << " Result = " << MT.getResultWord() << '\n';
+    std::cin.get();
+
+    fin.open("Multiply.txt");
+    MT.loadProgram(fin);
+    fin.close();
+    MT.printProgram(std::cout);
+    std::cin.get();
+    MT.setTape("111x1111"); MT.run(400);
+    std::string result = MT.getResultWord();
+    std::cout << " Result = " << result << '\n';
+    std::cin.get();
+
+    fin.open("UnaryToDecimal.txt");
+    MT.loadProgram(fin);
+    fin.close();
+    MT.printProgram(std::cout);
+    std::cin.get();
+    MT.setTape(result); MT.run(400);
+    std::cout << " Result = " << MT.getResultWord() << '\n';
 }

@@ -2,6 +2,7 @@
 #include <map>
 #include <string>
 #include <set>
+#include <Windows.h>
 #include "Command.h"
 
 using Row = std::map<char, Command>;
@@ -26,18 +27,32 @@ public:
 	std::set<char> getOuterABC() const;
 };
 
+const int BlackOnWhite = 0xF0;
+const int WhiteOnBlack = 0x0F;
+
 class Machine
 {
 	int position;
 	std::string tape;
 	int state;
 	Program prg;
+	HANDLE hConsole;
 public:
 	// Який символ для машини порожній
 	static const char EmptySymbol = '~';
 
-	explicit Machine(unsigned n) :position(1), state(0), prg(n), tape(2, '~') { }
-	Machine(unsigned n, int pos) :position(pos), state(0), prg(n), tape(2, '~') { }
+	explicit Machine(unsigned n) :position(1), state(0), prg(n), tape(2, '~')
+	{ 
+		hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+		SetConsoleTextAttribute(hConsole, BlackOnWhite);
+		system("cls");
+	}
+	Machine(unsigned n, int pos) :position(pos), state(0), prg(n), tape(2, '~')
+	{
+		hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+		SetConsoleTextAttribute(hConsole, BlackOnWhite);
+		system("cls");
+	}
 
 	// Задає інформаційну стрічку, облямовує її порожніми символами
 	void setTape(std::string str) { tape = str.insert(0, 1, EmptySymbol) + EmptySymbol; }

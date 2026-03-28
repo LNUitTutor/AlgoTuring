@@ -51,7 +51,9 @@ void Machine::printOn(std::ostream& os)
 	if (state >= 0) os << "q_" << state << ": '";
 	else os << "q_F: '";
 	for (int i = 0; i < position; ++i) os << tape[i];
-	os << "\033[106m" << tape[position] << "\033[0m";
+	SetConsoleTextAttribute(hConsole, WhiteOnBlack);
+	os << tape[position];
+	SetConsoleTextAttribute(hConsole, BlackOnWhite);
 	for (int i = position + 1; i < tape.length(); ++i) os << tape[i];
 	os << "'\n";
 }
@@ -65,14 +67,14 @@ Machine& Machine::setCommand(unsigned state, char letter, const Command& cmd)
 Machine& Machine::setStatesCount(unsigned n)
 {
 	prg.setStatesCount(n);
-	setPosition(0);
+	setPosition(1);
 	reset();
 	return *this;
 }
 
 Machine& Machine::setPosition(int pos)
 {
-	position = pos + 1;
+	position = pos;
 	return *this;
 }
 

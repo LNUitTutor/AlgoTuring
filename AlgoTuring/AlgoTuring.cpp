@@ -59,4 +59,5 @@ int main()
     std::cin.get();
     MT.setTape(result); MT.run(400);
     std::cout << " Result = " << MT.getResultWord() << '\n';
+    std::cin.get();
 }

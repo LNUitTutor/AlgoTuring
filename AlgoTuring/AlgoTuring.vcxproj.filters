@@ -46,5 +46,8 @@
     <Text Include="UnaryToDecimal.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="Euclid.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

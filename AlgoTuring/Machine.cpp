@@ -65,14 +65,14 @@ Machine& Machine::setCommand(unsigned state, char letter, const Command& cmd)
 Machine& Machine::setStatesCount(unsigned n)
 {
 	prg.setStatesCount(n);
-	setPosition(0);
+	setPosition(1);
 	reset();
 	return *this;
 }
 
 Machine& Machine::setPosition(int pos)
 {
-	position = pos + 1;
+	position = pos;
 	return *this;
 }
 
